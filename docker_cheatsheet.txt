@@ -1,0 +1,7 @@
+1) Docker is a container technology: A tool for creating and maintaining containers.
+
+2) Container is package which contains code and dependencies to run that code. Same container always yields the exact same application and execution behaviour.
+
+3) It creates reliable and reproduciable environments.
+
+4) One container is independent from other containers.
