@@ -1,0 +1,26 @@
+1) Remove docker:
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+
+2) Update apt
+    sudo apt-get update
+
+3) Install some packages needed.
+    sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+4) Add Docker official GPG key using below command.
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+5) Add docker repository to your system repository
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+
+6) Update apt
+    sudo apt-get update
+
+7) Install docker engine.
+    sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+8) check docker status.
+    sudo systemctl status docker
+
+9) check docker version.
+    docker -v

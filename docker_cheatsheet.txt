@@ -5,3 +5,10 @@
 3) It creates reliable and reproduciable environments.
 
 4) One container is independent from other containers.
+
+5) Operating System -> Built-in Container support system -> Docker Engine -> (ContainerA, ContainerB ,.....).
+    One container for each application.
+
+6) Install Docker Engine, Docker Desktop and Docker CLI. Docker Hub to host the images on cloud. Docker Compose to handle multiple containers for a project.
+
+7) 
