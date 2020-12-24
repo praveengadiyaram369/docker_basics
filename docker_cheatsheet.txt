@@ -11,4 +11,10 @@
 
 6) Install Docker Engine, Docker Desktop and Docker CLI. Docker Hub to host the images on cloud. Docker Compose to handle multiple containers for a project.
 
-7) 
+7) Images and Containers are the two core concepts of Docker.
+
+8) Images are blueprints/templates for Containers. We can create one Image and make multiple containers using that one image.
+
+9) Image contains setup instructions for the code, application code which can be run on any server/machine and Contianers are running instance of the image.
+
+10) 

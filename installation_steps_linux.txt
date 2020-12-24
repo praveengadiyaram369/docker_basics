@@ -24,3 +24,6 @@
 
 9) check docker version.
     docker -v
+
+10) run below command for the issue of "dial unix /var/run/docker.sock: connect: permission denied"
+    sudo setfacl --modify user:$USER:rw /var/run/docker.sock
