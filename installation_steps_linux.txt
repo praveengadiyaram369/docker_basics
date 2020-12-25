@@ -27,3 +27,80 @@
 
 10) run below command for the issue of "dial unix /var/run/docker.sock: connect: permission denied"
     sudo setfacl --modify user:$USER:rw /var/run/docker.sock
+
+11) Download pre-existing docker images from docker hub using below command
+    docker run node -> to download docker image of nodejs applications
+
+12) list all docker processes/images.
+    docker ps -a
+    docker ps -> gives only running containers.
+
+13) start interactive session for any container image.
+    docker run -it node
+
+14) create a new custom image using a Dockerfile which runs all the steps inside. You should always rebuild the Dockerfile  when there are new changes in the application code.
+    docker build .
+
+15) stop the docker container using stop command
+    docker stop container_name
+
+16) publish the docker container to expose the port which you want to access locally. By default running docker image is attach mode. To make it run in detach mode, you need to specify -d while executing.
+    docker run -p 5000:80 image_hash_id
+    docker run -p 6000:80 -d image_hash_id -> for detach mode
+
+17) start the existing container using start command. By default, the container runs in the background(detach mode).To make it run in attach mode, you need to specify -a while executing.
+    docker start container_name
+    docker start -a container_name
+
+18) To check logs of a particular container
+    docker logs container_name
+
+19) You can make any background running container to print logs using attach command.
+    docker attach container_name
+
+20) In order to run container to take inputs from the console, we should execute it in the interactive mode. same applies with restarting the container.
+    docker run -it image_hash_id
+    docker start -i docker_name
+
+21) Remove the container using rm command.
+    docker rm container_name_1 container_name_2 ..
+    
+22) list all images on the system using below command.
+    docker images
+
+23) delete an image and its layers using the rmi command.
+    docker rmi image_hash_id
+
+24) To remove all the images in one step, we need to use prune command.
+    docker image prune
+    docker container prune
+
+25) Inspecting steps/configurations of images using inspect command.
+    docker image inspect
+
+26) Copy files from and to a running container. we cannot copy already existing files in the container using cp command.
+    docker cp src docker_name:/dest  -> from local src to dest inside container
+    docker cp docker_name:/dest src  -> from container dest location to local src
+
+27) Providing a custom name to a container using name command.  
+    docker run -p 5000:80 --name abc image_hash_id
+
+28) We can specify tag/version along with the image name while building the image.
+    docker build -t image_name:tag_name .
+
+29) we can create the container on specific image version using below command.
+    docker run -p 5000:80 --name abc image_name:tag_name
+
+30) Copy the complete image or renaming the image.
+    docker tag abc:tag_abc def:tag_def
+
+31) Sharing images on Docker hub.
+    a) create a account on docker hub
+    b) create a repository and push the local image to that repository
+    c) docker push praveengadiyaram369/repo_123:tagname
+
+32) Before pushing the image to docker hub we need to login to docker locally with docker hub credentials.
+    a) docker login
+
+33) Automatically remove the container after finishing the execution.
+    docker run --name abc --rm image_hash_id 

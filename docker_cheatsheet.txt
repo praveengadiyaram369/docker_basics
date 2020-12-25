@@ -17,4 +17,24 @@
 
 9) Image contains setup instructions for the code, application code which can be run on any server/machine and Contianers are running instance of the image.
 
-10) 
+10) Two ways of finding/creating an image
+    a) Use an existing or pre-built image (mostly from Docker Hub)
+    b) Creating a custom image
+
+11) Everytime we run the command "docker run", it creates a new instance of the image.
+
+12) Whenever there is a change in the application code, we need to build again and then run the docker image.
+
+13) whenever we build the Dockerfile file, docker caches the result of each instruction, so if there are no changes in the instructions and code, the build always finishes quickly as it uses the cache information.
+
+14) Docker follows layer based architecture, means every instruction inside the Dockerfile represents a layer and the final image is a combination of all these small layers. Image is generally refered as read only entity, whereas a container is the final layer on top of all the instructions layers and refered as read-write entity.
+
+15) To optimize the performance of docker, we should write the instructions appropriately in the Dockerfile. 
+    which instructions come before or after? 
+
+16) we can restart the existing container, rather than creating new container evertime.
+
+17) To specify a particular version of the image, you can use tag along with colon(name:tag). Eg:- node:14
+    here node is the name and 14 is the tag/version.
+
+18) 
