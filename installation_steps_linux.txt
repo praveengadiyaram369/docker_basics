@@ -104,3 +104,32 @@
 
 33) Automatically remove the container after finishing the execution.
     docker run --name abc --rm image_hash_id 
+
+34) list all volumes 
+    docker volume ls 
+
+35) Example of Named volumes. All the persistent data is stored in feedback volume, even if we you create new container with same volume name, we can still acess the volume. Multiple containers can share the same volume.
+    docker run -d -p 4000:80 --name container_2 -v feedback:/app/feedback volumes:1
+
+36) In order to use bind mounting, we'll be using the same -v command with local path on the system. below command is binding the project folder with the app folder inside the container. To get the current working directory we can also use    $(pwd):/app.
+
+    docker run -d --rm  -p 4000:80 --name container_3 -v feedback:/app/feedback -v "/home/praveen/Documents/Python_Programming/docker_basics/sample_projects/data-volumes-01-starting-setup:/app"  volumes:1
+
+    a) named volume -> -v feedback:/app/feedback
+    b) bind mapping -> -v "/home/praveen/Documents/Python_Programming/docker_basics/sample_projects/data-volumes-01-starting-setup:/app"
+
+    Due to node dependency issues, below is the fix:
+
+    docker run -d --rm  -p 4000:80 --name container_3 -v feedback:/app/feedback -v "/home/praveen/Documents/Python_Programming/docker_basics/sample_projects/data-volumes-01-starting-setup:/app" -v /app/node_modules  volumes:1
+
+    c) anonymous volume -> -v /app/node_modules
+
+37) To restrict the container to not write any details to local system, we can use (ro) tag/command.
+
+    docker run -d --rm  -p 4000:80 --name container_3 -v feedback:/app/feedback -v "/home/praveen/Documents/Python_Programming/docker_basics/sample_projects/data-volumes-01-starting-setup:/app:ro" -v /app/node_modules  docker:volumes
+
+    docker run -d --rm  -p 4000:80 --name container_3 -v feedback:/app/feedback -v "/home/praveen/Documents/Python_Programming/docker_basics/sample_projects/data-volumes-01-starting-setup:/app:ro" -v /app/temp -v /app/node_modules  docker:volumes
+
+38) Provide environment variables while running the container using env command
+
+    docker run -d --rm  -p 4000:8000 --env PORT=8000 --name container_4 -v feedback:/app/feedback -v "$(pwd):/app:ro" -v /app/temp -v /app/node_modules  docker_volumes:env

@@ -37,4 +37,34 @@
 17) To specify a particular version of the image, you can use tag along with colon(name:tag). Eg:- node:14
     here node is the name and 14 is the tag/version.
 
-18) 
+18) Images are read only and container are read-write, but cannot be used to store permanent data such as user data which is typically saved in a database. So, in order to save data permanently we use volumes.
+
+19) Volumes are folders on local host machine, which are mapped to docker container, so that the changes are permanent even after removing the container.
+
+20) There are two types of external data storages:
+    a) Volumes: managed by docker
+    b) Bind Mounts: managed by developers
+
+21) Volumes are of two types: Anonymous Volumes and Named Volumes
+    Anonymous Volumes -> Docker sets up the path on our local machine, but we don't know the exact location. Anonymous volumes are deleted after removing the container from the system.
+    Named volumes -> Defined path in the container is mapped to the created volume, but cannot be find/edited on local machine. Good for the persistent data which you don't need to edit directly.
+
+22) Named volumes are not specified inside the Dockerfile, but needs to be specified at the time container creation command(docker run -v folder:path). multiple conta can use same named volume.
+
+23) Using Bind Mounts, we can define a path/folder in our local machine to use as external storage. Great for persistent and editable data.
+
+24) Using VOLUME and -v commands are same for all different types of volumes, but the usage is different.
+
+25) Bind mapping completely binds the folders in the local system and inside the container.
+
+26) Anonymous volumes - Can be shared by only one container, once container is removed, the data is gone and also these volumes are not re-usable, as there is no name for the volume.
+
+27) Named volumes - Can be used by different containers even after removing the container.
+
+28) Bind Mounts - Can be attached to multiple containers. local path is just mounted, docker cannot change the contents.
+
+29) If we use bind mount, then there is no need to copy the application code to workdir while building the project. It's better to use COPY rather than the bind Mounts.
+
+30) Docker supports build-time arguments and run-time environment variables.
+    a) ARG - variables available inside the Dockerfile, not acessible in CMD or application code. set on image build.
+    b) ENV - variables available in Dockerfile and in application code. set by ENV in Dockerfile or by --env on docker run.
