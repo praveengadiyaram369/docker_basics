@@ -68,3 +68,16 @@
 30) Docker supports build-time arguments and run-time environment variables.
     a) ARG - variables available inside the Dockerfile, not acessible in CMD or application code. set on image build.
     b) ENV - variables available in Dockerfile and in application code. set by ENV in Dockerfile or by --env on docker run.
+
+31) Three general type of communications in containers are 
+    a) Container to WWW communication.
+    b) Container to Local Host Machine communication.
+    c) Container to Conatainer communication.
+
+32) All communications to WWW would work fine from the container, but the local host machine communication has issues to find the ip address. In order to fix that issue, instead of localhost we should use (host.docker.internal:).
+
+33) In order to establish the Container to Conatainer communication, we must use the ip address of one container inside the another container as domain. we can get the container ip address from inspect command.
+
+34) Rather finding ip address of other containers evertime, we can just keep all the container in one network. Within the Docker network, all containers can communicate with each other and IP's are automatically resolved.
+
+35) Unlike volumes, docker does not create networks automatically whiler running the containers. We should create a network before using it any further. Instead of using the other container's ip address, now we can use the container name as domain/ip.

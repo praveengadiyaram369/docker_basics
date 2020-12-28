@@ -133,3 +133,12 @@
 38) Provide environment variables while running the container using env command
 
     docker run -d --rm  -p 4000:8000 --env PORT=8000 --name container_4 -v feedback:/app/feedback -v "$(pwd):/app:ro" -v /app/temp -v /app/node_modules  docker_volumes:env
+
+39) Check the ip address of docker container using below command.
+    docker inspect container_name
+
+40) Create a new docker network using below command.
+    docker network create network_name
+
+41) Using docker network with --network
+    docker run -d --rm --network favorites_net   --name mongodb mongo
