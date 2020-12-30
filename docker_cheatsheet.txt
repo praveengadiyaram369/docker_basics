@@ -85,3 +85,5 @@
 36) For automating multi-container setup, we can use Docker-Compose tool. Docker-compose lets you create one configuration file and orchestration commands to handle the multi-container setup.
 
 37) Docker-compose creates a default network for all the container mentioned in the file.
+
+38) ENTRYPOINT in Dockerfile specifies the command which needs to be executed, similar to CMD command. But the input is provided after the image name. So, whatever provided after the image name is appended to ENTRYPOINT data and then executed. In case of docker compose, we must use the run command to provide the command along with the servicename.

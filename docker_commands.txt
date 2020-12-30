@@ -153,3 +153,12 @@
 44) Stopping all containers which are started by docker-compose.
     docker-compose down 
     docker-compose down -v -> removes the volumes too
+
+45) To run commands inside a docker container we need to use the exec command.
+    docker run -it -d node
+    docker exec -it container_name npm init
+
+46) Use docker-compose run command to provide the entrypoint inputs.
+    docker-compose run  npm init
+
+47) 
