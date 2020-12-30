@@ -81,3 +81,7 @@
 34) Rather finding ip address of other containers evertime, we can just keep all the container in one network. Within the Docker network, all containers can communicate with each other and IP's are automatically resolved.
 
 35) Unlike volumes, docker does not create networks automatically whiler running the containers. We should create a network before using it any further. Instead of using the other container's ip address, now we can use the container name as domain/ip.
+
+36) For automating multi-container setup, we can use Docker-Compose tool. Docker-compose lets you create one configuration file and orchestration commands to handle the multi-container setup.
+
+37) Docker-compose creates a default network for all the container mentioned in the file.

@@ -146,4 +146,10 @@
 42) list all networks available.
     docker network ls
 
-43) 
+43) Start the containers configured inside the docker-compose file.
+    docker-compose up
+    docker-compose up -d -> running in detach mode
+
+44) Stopping all containers which are started by docker-compose.
+    docker-compose down 
+    docker-compose down -v -> removes the volumes too
